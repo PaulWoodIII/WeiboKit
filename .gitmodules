@@ -1,0 +1,3 @@
+[submodule "WeiboKit/Vendor/afnetowrking"]
+	path = WeiboKit/Vendor/afnetowrking
+	url = https://github.com/AFNetworking/AFNetworking.git
