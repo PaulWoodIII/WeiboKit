@@ -26,6 +26,7 @@
 		DA66F90015D5DE91000C5B0B /* WeiboKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeiboKit-Prefix.pch"; sourceTree = "<group>"; };
 		DA66F90115D5DE91000C5B0B /* PWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PWAppDelegate.h; sourceTree = "<group>"; };
 		DA66F90215D5DE91000C5B0B /* PWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PWAppDelegate.m; sourceTree = "<group>"; };
+		DA66F91615D5E0BC000C5B0B /* WeiboKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +76,7 @@
 				DA66F90115D5DE91000C5B0B /* PWAppDelegate.h */,
 				DA66F90215D5DE91000C5B0B /* PWAppDelegate.m */,
 				DA66F8F915D5DE91000C5B0B /* Supporting Files */,
+				DA66F91615D5E0BC000C5B0B /* WeiboKit.h */,
 			);
 			path = WeiboKit;
 			sourceTree = "<group>";
