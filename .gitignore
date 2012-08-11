@@ -1,0 +1,12 @@
+build/
+.svn
+.DS_Store
+**/*.pbxuser
+*.mode2v3
+*.mode1v3
+**/*.perspectivev*
+
+*Breakpoints.xcbkptlist
+*UserInterfaceState.xcuserstate
+xcuserdata
+*.xcworkspace
