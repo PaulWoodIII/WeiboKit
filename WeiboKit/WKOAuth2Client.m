@@ -9,6 +9,7 @@
 #import "WKOAuth2Client.h"
 #import "AFJSONRequestOperation.h"
 #import "WKStatus.h"
+#import "WKUser.h"
 
 @implementation WKOAuth2Client
 
@@ -60,10 +61,28 @@
                                          
                                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
-                                         NSLog(@"Error: %@", error);
+                                         if (failure) {
+                                             failure(operation, error);
+                                         }
                                      }];
 }
 
-
+- (void)getUserDetailsWithSuccess:(void (^)(WKUser *user))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
+    NSMutableDictionary *parameters = [self defaultGetParameters];
+    [parameters setObject:self.uid forKey:@"uid"];
+    [[WKOAuth2Client sharedInstance] getPath:@"users/show.json"
+                                  parameters:parameters
+                                     success:^(AFHTTPRequestOperation *operation, id responseObject){
+        WKUser *user = [WKUser objectWithDictionary:(NSDictionary *)responseObject];
+        if (success) {
+            success(user);
+        }
+    }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error){
+         if (failure) {
+             failure(operation, error);
+         }
+     }];
+}
 
 @end

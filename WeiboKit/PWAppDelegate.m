@@ -19,7 +19,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [[WKOAuth2Client sharedInstance] setOauthToken:@"YOUR OAUTH TOKEN HERE"];
+    [[WKOAuth2Client sharedInstance] setOauthToken:@"YOUR ACCESS TOKEN"];
+    [[WKOAuth2Client sharedInstance] setUid:@"YOUR USER ID"];
+    
     [[WKOAuth2Client sharedInstance] getStatusesWithSuccess:^(NSMutableArray *statuses) {
         NSLog(@"%@", statuses);
     }
@@ -27,6 +29,14 @@
         NSLog(@"Error: %@", error); 
     }];
     
+    //Test Get User
+    [[WKOAuth2Client sharedInstance] getUserDetailsWithSuccess:^(WKUser *user){
+        NSLog(@"%@", user);
+    }
+    failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        NSLog(@"Error: %@", error); 
+    }];
+
     
     return YES;
 }

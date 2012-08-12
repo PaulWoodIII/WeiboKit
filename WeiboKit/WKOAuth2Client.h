@@ -8,14 +8,20 @@
 
 #import "AFOAuth2Client.h"
 
+@class WKStatus;
+@class WKUser;
+
 @interface WKOAuth2Client : AFOAuth2Client {
     NSString *oauthToken;
+    NSString *uid;
 }
 
 @property (nonatomic, retain) NSString *oauthToken;
+@property (nonatomic, retain) NSString *uid;
 
 + (id)sharedInstance;
 
 - (void)getStatusesWithSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (void)getUserDetailsWithSuccess:(void (^)(WKUser *user))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 @end

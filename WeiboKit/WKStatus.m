@@ -42,6 +42,8 @@
     if (self) {
         self.text = [dictionary objectForKey:@"text"];
         self.idString = [dictionary objectForKey:@"idstr"];
+        // TO DO
+        // Add all the other params
     }
     
     return self;
