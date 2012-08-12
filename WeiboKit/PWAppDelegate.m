@@ -7,6 +7,8 @@
 //
 
 #import "PWAppDelegate.h"
+#import "AFNetworking.h"
+#import "WKOAuth2Client.h"
 
 @implementation PWAppDelegate
 
@@ -16,6 +18,16 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [[WKOAuth2Client sharedInstance] setOauthToken:@"YOUR OAUTH TOKEN HERE"];
+    [[WKOAuth2Client sharedInstance] getStatusesWithSuccess:^(NSMutableArray *statuses) {
+        NSLog(@"%@", statuses);
+    }
+    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error); 
+    }];
+    
+    
     return YES;
 }
 
