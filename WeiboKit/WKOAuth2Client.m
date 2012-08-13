@@ -42,7 +42,7 @@
     return parameters;
 }
 
-- (void)getStatusesWithSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
+- (void)getHomeTimlineWithSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/home_timeline.json"
                                   parameters:parameters
