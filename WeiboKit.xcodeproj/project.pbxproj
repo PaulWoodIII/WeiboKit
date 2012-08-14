@@ -44,7 +44,7 @@
 		DACCEE9F15DA090E00A8BD52 /* WKOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F99D15D62F69000C5B0B /* WKOAuth2Client.m */; };
 		DACCEEA015DA090E00A8BD52 /* WKStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1B27D215D72F6D00C7A7EE /* WKStatus.m */; };
 		DACCEEA115DA090E00A8BD52 /* WKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1B27D815D7319200C7A7EE /* WKUser.m */; };
-		DAF6FF6B15DA320F0031871E /* AFOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DA90301415DA2DB500F02E0D /* AFOAuth2Client.m */; };
+		DAF6FF6B15DA320F0031871E /* AFOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DA90301415DA2DB500F02E0D /* AFOAuth2Client.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -342,7 +342,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAF6FF6B15DA320F0031871E /* AFOAuth2Client.m in Sources */,
 				DACCEE9F15DA090E00A8BD52 /* WKOAuth2Client.m in Sources */,
 				DACCEEA015DA090E00A8BD52 /* WKStatus.m in Sources */,
 				DACCEEA115DA090E00A8BD52 /* WKUser.m in Sources */,
@@ -356,6 +355,7 @@
 				DA90305215DA2DD500F02E0D /* AFURLConnectionOperation.m in Sources */,
 				DA90305515DA2DD500F02E0D /* AFXMLRequestOperation.m in Sources */,
 				DA90305815DA2DD500F02E0D /* UIImageView+AFNetworking.m in Sources */,
+				DAF6FF6B15DA320F0031871E /* AFOAuth2Client.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
