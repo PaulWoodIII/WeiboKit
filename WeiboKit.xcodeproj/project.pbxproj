@@ -7,28 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA1B27D315D72F6D00C7A7EE /* WKStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1B27D215D72F6D00C7A7EE /* WKStatus.m */; };
-		DA1B27D615D7300400C7A7EE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1B27D515D7300400C7A7EE /* CoreLocation.framework */; };
-		DA1B27D915D7319200C7A7EE /* WKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1B27D815D7319200C7A7EE /* WKUser.m */; };
-		DA66F8F315D5DE91000C5B0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA66F8F215D5DE91000C5B0B /* UIKit.framework */; };
-		DA66F8F515D5DE91000C5B0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA66F8F415D5DE91000C5B0B /* Foundation.framework */; };
-		DA66F8F715D5DE91000C5B0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA66F8F615D5DE91000C5B0B /* CoreGraphics.framework */; };
-		DA66F8FD15D5DE91000C5B0B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA66F8FB15D5DE91000C5B0B /* InfoPlist.strings */; };
-		DA66F8FF15D5DE91000C5B0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F8FE15D5DE91000C5B0B /* main.m */; };
-		DA66F90315D5DE91000C5B0B /* PWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F90215D5DE91000C5B0B /* PWAppDelegate.m */; };
-		DA66F97315D5E159000C5B0B /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F92815D5E158000C5B0B /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DA66F97415D5E159000C5B0B /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F92A15D5E158000C5B0B /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DA66F97515D5E159000C5B0B /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F92C15D5E158000C5B0B /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DA66F97615D5E159000C5B0B /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F92E15D5E158000C5B0B /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DA66F97715D5E159000C5B0B /* AFJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F93015D5E158000C5B0B /* AFJSONUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DA66F97815D5E159000C5B0B /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F93215D5E158000C5B0B /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DA66F97915D5E159000C5B0B /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F93515D5E158000C5B0B /* AFPropertyListRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DA66F97A15D5E159000C5B0B /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F93715D5E158000C5B0B /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DA66F97B15D5E159000C5B0B /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F93915D5E158000C5B0B /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DA66F97C15D5E159000C5B0B /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F93B15D5E158000C5B0B /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DA66F99315D5E159000C5B0B /* AFOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F96815D5E158000C5B0B /* AFOAuth2Client.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DA66F99E15D62F69000C5B0B /* WKOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F99D15D62F69000C5B0B /* WKOAuth2Client.m */; };
+		DA8EE9FA15DA0C6C00F5F0BC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8EE9F915DA0C6C00F5F0BC /* Cocoa.framework */; };
+		DACCEE6915DA07ED00A8BD52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA66F8F415D5DE91000C5B0B /* Foundation.framework */; };
+		DACCEE9315DA08EB00A8BD52 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1B27D515D7300400C7A7EE /* CoreLocation.framework */; };
+		DACCEE9415DA090E00A8BD52 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F92815D5E158000C5B0B /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DACCEE9515DA090E00A8BD52 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F92A15D5E158000C5B0B /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DACCEE9615DA090E00A8BD52 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F92C15D5E158000C5B0B /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DACCEE9715DA090E00A8BD52 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F92E15D5E158000C5B0B /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DACCEE9815DA090E00A8BD52 /* AFJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F93015D5E158000C5B0B /* AFJSONUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DACCEE9915DA090E00A8BD52 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F93215D5E158000C5B0B /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DACCEE9A15DA090E00A8BD52 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F93515D5E158000C5B0B /* AFPropertyListRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DACCEE9B15DA090E00A8BD52 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F93715D5E158000C5B0B /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DACCEE9C15DA090E00A8BD52 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F93915D5E158000C5B0B /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DACCEE9D15DA090E00A8BD52 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F93B15D5E158000C5B0B /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DACCEE9E15DA090E00A8BD52 /* AFOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F96815D5E158000C5B0B /* AFOAuth2Client.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DACCEE9F15DA090E00A8BD52 /* WKOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F99D15D62F69000C5B0B /* WKOAuth2Client.m */; };
+		DACCEEA015DA090E00A8BD52 /* WKStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1B27D215D72F6D00C7A7EE /* WKStatus.m */; };
+		DACCEEA115DA090E00A8BD52 /* WKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1B27D815D7319200C7A7EE /* WKUser.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DACCEE6615DA07ED00A8BD52 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DA1B27D115D72F6D00C7A7EE /* WKStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKStatus.h; sourceTree = "<group>"; };
@@ -36,17 +44,7 @@
 		DA1B27D515D7300400C7A7EE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DA1B27D715D7319200C7A7EE /* WKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUser.h; sourceTree = "<group>"; };
 		DA1B27D815D7319200C7A7EE /* WKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUser.m; sourceTree = "<group>"; };
-		DA66F8EE15D5DE91000C5B0B /* WeiboKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiboKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA66F8F215D5DE91000C5B0B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA66F8F415D5DE91000C5B0B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		DA66F8F615D5DE91000C5B0B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		DA66F8FA15D5DE91000C5B0B /* WeiboKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WeiboKit-Info.plist"; sourceTree = "<group>"; };
-		DA66F8FC15D5DE91000C5B0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DA66F8FE15D5DE91000C5B0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DA66F90015D5DE91000C5B0B /* WeiboKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeiboKit-Prefix.pch"; sourceTree = "<group>"; };
-		DA66F90115D5DE91000C5B0B /* PWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PWAppDelegate.h; sourceTree = "<group>"; };
-		DA66F90215D5DE91000C5B0B /* PWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PWAppDelegate.m; sourceTree = "<group>"; };
-		DA66F91615D5E0BC000C5B0B /* WeiboKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboKit.h; sourceTree = "<group>"; };
 		DA66F92715D5E158000C5B0B /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		DA66F92815D5E158000C5B0B /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		DA66F92915D5E158000C5B0B /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -72,17 +70,27 @@
 		DA66F96815D5E158000C5B0B /* AFOAuth2Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFOAuth2Client.m; sourceTree = "<group>"; };
 		DA66F99C15D62F69000C5B0B /* WKOAuth2Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKOAuth2Client.h; sourceTree = "<group>"; };
 		DA66F99D15D62F69000C5B0B /* WKOAuth2Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKOAuth2Client.m; sourceTree = "<group>"; };
+		DA8EE9F815DA0C6C00F5F0BC /* WeiboKitmac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeiboKitmac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA8EE9F915DA0C6C00F5F0BC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		DACCEE6815DA07ED00A8BD52 /* libWeiboKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWeiboKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DACCEE6C15DA07ED00A8BD52 /* WeiboKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeiboKit-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DA66F8EB15D5DE91000C5B0B /* Frameworks */ = {
+		DA8EE9F415DA0C6C00F5F0BC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA1B27D615D7300400C7A7EE /* CoreLocation.framework in Frameworks */,
-				DA66F8F315D5DE91000C5B0B /* UIKit.framework in Frameworks */,
-				DA66F8F515D5DE91000C5B0B /* Foundation.framework in Frameworks */,
-				DA66F8F715D5DE91000C5B0B /* CoreGraphics.framework in Frameworks */,
+				DA8EE9FA15DA0C6C00F5F0BC /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DACCEE6515DA07ED00A8BD52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DACCEE6915DA07ED00A8BD52 /* Foundation.framework in Frameworks */,
+				DACCEE9315DA08EB00A8BD52 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +109,8 @@
 		DA66F8EF15D5DE91000C5B0B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DA66F8EE15D5DE91000C5B0B /* WeiboKit.app */,
+				DACCEE6815DA07ED00A8BD52 /* libWeiboKit.a */,
+				DA8EE9F815DA0C6C00F5F0BC /* WeiboKitmac.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,9 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				DA1B27D515D7300400C7A7EE /* CoreLocation.framework */,
-				DA66F8F215D5DE91000C5B0B /* UIKit.framework */,
 				DA66F8F415D5DE91000C5B0B /* Foundation.framework */,
-				DA66F8F615D5DE91000C5B0B /* CoreGraphics.framework */,
+				DA8EE9F915DA0C6C00F5F0BC /* Cocoa.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -120,11 +128,8 @@
 		DA66F8F815D5DE91000C5B0B /* WeiboKit */ = {
 			isa = PBXGroup;
 			children = (
+				DACCEE6B15DA07ED00A8BD52 /* Supporting Files */,
 				DA66F92415D5E158000C5B0B /* Vendor */,
-				DA66F90115D5DE91000C5B0B /* PWAppDelegate.h */,
-				DA66F90215D5DE91000C5B0B /* PWAppDelegate.m */,
-				DA66F8F915D5DE91000C5B0B /* Supporting Files */,
-				DA66F91615D5E0BC000C5B0B /* WeiboKit.h */,
 				DA66F99C15D62F69000C5B0B /* WKOAuth2Client.h */,
 				DA66F99D15D62F69000C5B0B /* WKOAuth2Client.m */,
 				DA1B27D115D72F6D00C7A7EE /* WKStatus.h */,
@@ -133,17 +138,6 @@
 				DA1B27D815D7319200C7A7EE /* WKUser.m */,
 			);
 			path = WeiboKit;
-			sourceTree = "<group>";
-		};
-		DA66F8F915D5DE91000C5B0B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				DA66F8FA15D5DE91000C5B0B /* WeiboKit-Info.plist */,
-				DA66F8FB15D5DE91000C5B0B /* InfoPlist.strings */,
-				DA66F8FE15D5DE91000C5B0B /* main.m */,
-				DA66F90015D5DE91000C5B0B /* WeiboKit-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		DA66F92415D5E158000C5B0B /* Vendor */ = {
@@ -200,16 +194,52 @@
 			path = afoauth2client;
 			sourceTree = "<group>";
 		};
+		DACCEE6B15DA07ED00A8BD52 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DACCEE6C15DA07ED00A8BD52 /* WeiboKit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		DA8EE9F515DA0C6C00F5F0BC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		DA66F8ED15D5DE91000C5B0B /* WeiboKit */ = {
+		DA8EE9F715DA0C6C00F5F0BC /* WeiboKitmac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DA66F90615D5DE91000C5B0B /* Build configuration list for PBXNativeTarget "WeiboKit" */;
+			buildConfigurationList = DA8EEA0915DA0C6C00F5F0BC /* Build configuration list for PBXNativeTarget "WeiboKitmac" */;
 			buildPhases = (
-				DA66F8EA15D5DE91000C5B0B /* Sources */,
-				DA66F8EB15D5DE91000C5B0B /* Frameworks */,
-				DA66F8EC15D5DE91000C5B0B /* Resources */,
+				DA8EE9F315DA0C6C00F5F0BC /* Sources */,
+				DA8EE9F415DA0C6C00F5F0BC /* Frameworks */,
+				DA8EE9F515DA0C6C00F5F0BC /* Headers */,
+				DA8EE9F615DA0C6C00F5F0BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeiboKitmac;
+			productName = WeiboKitmac;
+			productReference = DA8EE9F815DA0C6C00F5F0BC /* WeiboKitmac.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DACCEE6715DA07ED00A8BD52 /* WeiboKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DACCEE7115DA07ED00A8BD52 /* Build configuration list for PBXNativeTarget "WeiboKit" */;
+			buildPhases = (
+				DACCEE6415DA07ED00A8BD52 /* Sources */,
+				DACCEE6515DA07ED00A8BD52 /* Frameworks */,
+				DACCEE6615DA07ED00A8BD52 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -217,8 +247,8 @@
 			);
 			name = WeiboKit;
 			productName = WeiboKit;
-			productReference = DA66F8EE15D5DE91000C5B0B /* WeiboKit.app */;
-			productType = "com.apple.product-type.application";
+			productReference = DACCEE6815DA07ED00A8BD52 /* libWeiboKit.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -242,58 +272,52 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DA66F8ED15D5DE91000C5B0B /* WeiboKit */,
+				DACCEE6715DA07ED00A8BD52 /* WeiboKit */,
+				DA8EE9F715DA0C6C00F5F0BC /* WeiboKitmac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DA66F8EC15D5DE91000C5B0B /* Resources */ = {
+		DA8EE9F615DA0C6C00F5F0BC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA66F8FD15D5DE91000C5B0B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DA66F8EA15D5DE91000C5B0B /* Sources */ = {
+		DA8EE9F315DA0C6C00F5F0BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA66F8FF15D5DE91000C5B0B /* main.m in Sources */,
-				DA66F90315D5DE91000C5B0B /* PWAppDelegate.m in Sources */,
-				DA66F97315D5E159000C5B0B /* AFHTTPClient.m in Sources */,
-				DA66F97415D5E159000C5B0B /* AFHTTPRequestOperation.m in Sources */,
-				DA66F97515D5E159000C5B0B /* AFImageRequestOperation.m in Sources */,
-				DA66F97615D5E159000C5B0B /* AFJSONRequestOperation.m in Sources */,
-				DA66F97715D5E159000C5B0B /* AFJSONUtilities.m in Sources */,
-				DA66F97815D5E159000C5B0B /* AFNetworkActivityIndicatorManager.m in Sources */,
-				DA66F97915D5E159000C5B0B /* AFPropertyListRequestOperation.m in Sources */,
-				DA66F97A15D5E159000C5B0B /* AFURLConnectionOperation.m in Sources */,
-				DA66F97B15D5E159000C5B0B /* AFXMLRequestOperation.m in Sources */,
-				DA66F97C15D5E159000C5B0B /* UIImageView+AFNetworking.m in Sources */,
-				DA66F99315D5E159000C5B0B /* AFOAuth2Client.m in Sources */,
-				DA66F99E15D62F69000C5B0B /* WKOAuth2Client.m in Sources */,
-				DA1B27D315D72F6D00C7A7EE /* WKStatus.m in Sources */,
-				DA1B27D915D7319200C7A7EE /* WKUser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DACCEE6415DA07ED00A8BD52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DACCEE9415DA090E00A8BD52 /* AFHTTPClient.m in Sources */,
+				DACCEE9515DA090E00A8BD52 /* AFHTTPRequestOperation.m in Sources */,
+				DACCEE9615DA090E00A8BD52 /* AFImageRequestOperation.m in Sources */,
+				DACCEE9715DA090E00A8BD52 /* AFJSONRequestOperation.m in Sources */,
+				DACCEE9815DA090E00A8BD52 /* AFJSONUtilities.m in Sources */,
+				DACCEE9915DA090E00A8BD52 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				DACCEE9A15DA090E00A8BD52 /* AFPropertyListRequestOperation.m in Sources */,
+				DACCEE9B15DA090E00A8BD52 /* AFURLConnectionOperation.m in Sources */,
+				DACCEE9C15DA090E00A8BD52 /* AFXMLRequestOperation.m in Sources */,
+				DACCEE9D15DA090E00A8BD52 /* UIImageView+AFNetworking.m in Sources */,
+				DACCEE9E15DA090E00A8BD52 /* AFOAuth2Client.m in Sources */,
+				DACCEE9F15DA090E00A8BD52 /* WKOAuth2Client.m in Sources */,
+				DACCEEA015DA090E00A8BD52 /* WKStatus.m in Sources */,
+				DACCEEA115DA090E00A8BD52 /* WKUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		DA66F8FB15D5DE91000C5B0B /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DA66F8FC15D5DE91000C5B0B /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DA66F90415D5DE91000C5B0B /* Debug */ = {
@@ -304,7 +328,6 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -330,7 +353,6 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -343,25 +365,77 @@
 			};
 			name = Release;
 		};
-		DA66F90715D5DE91000C5B0B /* Debug */ = {
+		DA8EEA0A15DA0C6C00F5F0BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode45-DP4.app/Contents/Developer/Library/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WeiboKit/WeiboKit-Prefix.pch";
-				INFOPLIST_FILE = "WeiboKit/WeiboKit-Info.plist";
+				GCC_PREFIX_HEADER = "WeiboKitmac/WeiboKitmac-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "WeiboKitmac/WeiboKitmac-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
 		};
-		DA66F90815D5DE91000C5B0B /* Release */ = {
+		DA8EEA0B15DA0C6C00F5F0BC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode45-DP4.app/Contents/Developer/Library/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WeiboKitmac/WeiboKitmac-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "WeiboKitmac/WeiboKitmac-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		DACCEE7215DA07ED00A8BD52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/WeiboKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeiboKit/WeiboKit-Prefix.pch";
-				INFOPLIST_FILE = "WeiboKit/WeiboKit-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DACCEE7315DA07ED00A8BD52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/WeiboKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WeiboKit/WeiboKit-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -377,11 +451,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DA66F90615D5DE91000C5B0B /* Build configuration list for PBXNativeTarget "WeiboKit" */ = {
+		DA8EEA0915DA0C6C00F5F0BC /* Build configuration list for PBXNativeTarget "WeiboKitmac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DA66F90715D5DE91000C5B0B /* Debug */,
-				DA66F90815D5DE91000C5B0B /* Release */,
+				DA8EEA0A15DA0C6C00F5F0BC /* Debug */,
+				DA8EEA0B15DA0C6C00F5F0BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DACCEE7115DA07ED00A8BD52 /* Build configuration list for PBXNativeTarget "WeiboKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DACCEE7215DA07ED00A8BD52 /* Debug */,
+				DACCEE7315DA07ED00A8BD52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
