@@ -13,7 +13,7 @@
 
 @implementation WKOAuth2Client
 
-#define kWKAPIURL     @"https://api.weibo.com/oauth2"
+#define kWKAPIURL     @"https://api.weibo.com/2"
 
 + (id)sharedInstance {
     static WKOAuth2Client *__sharedInstance;
