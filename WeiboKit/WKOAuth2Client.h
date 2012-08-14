@@ -13,8 +13,8 @@
 @class WKUser;
 
 @interface WKOAuth2Client : AFOAuth2Client {
-    NSString *oauthToken;
-    NSString *uid;
+    NSString *_oauthToken;
+    NSString *_uid;
 }
 
 @property (nonatomic, retain) NSString *oauthToken;
@@ -22,11 +22,18 @@
 
 + (id)sharedInstance;
 
-// Weibo API
+#pragma mark -
+#pragma mark OAuth 2.0 Authorization API
 
+#pragma mark -
+#pragma mark Weibo API
+// Statuses and Posting Statuses
+
+// TO DO
 // statuses/public_timeline
 // Return the latest public weibos
-- (void)getPublicTimlineWithSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+// - (void)getPublicTimlineWithSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 // statuses/home_timeline
 // Return the authenticating user’s and his friends’ latest weibos
@@ -64,6 +71,8 @@
 - (void)getMentionsForStatus:(WKStatus *)users sinceStatus:(WKStatus *)sinceStatus startingAtPage:(int)pageNum count:(int)count withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 - (void)getMentionsForStatus:(WKStatus *)users  sinceStatus:(WKStatus *)sinceStatus withMaximumStatus:(WKStatus *)maxStatus startingAtPage:(int)pageNum count:(int)count withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
+//TODO
+/*
 // statuses/show
 - (void)showStatusWithID:(int)statusID withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
@@ -86,6 +95,46 @@
 - (void)uploadStatusWithComment:(NSString *)comment withImage:(UIImage *)image withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 - (void)uploadStatusWithComment:(NSString *)comment withImage:(UIImage *)image withLat:(float)lat withLng:(float)lng withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
+*/ 
+ 
+#pragma mark -
+#pragma mark Comments API
+// Comments and Posting Comments
+ 
+#pragma mark -
+#pragma mark Users API
+// Friends & Followers 
 - (void)getUserDetailsWithSuccess:(void (^)(WKUser *user))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+#pragma mark -
+#pragma mark Accounts API
+
+
+#pragma mark -
+#pragma mark Favorites API
+
+#pragma mark -
+#pragma mark Topics API
+
+#pragma mark -
+#pragma mark Tags API
+
+#pragma mark -
+#pragma mark Register API
+
+#pragma mark -
+#pragma mark Search API
+
+#pragma mark -
+#pragma mark Recommend API
+
+#pragma mark -
+#pragma mark Remind API
+
+#pragma mark -
+#pragma mark Public Service API
+
+#pragma mark -
+#pragma mark Geo API
 
 @end
