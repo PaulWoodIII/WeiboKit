@@ -47,6 +47,13 @@
 		DAD357BF15DB2BC200DCA70A /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = DAD357AC15DB2BC200DCA70A /* SSKeychain.h */; };
 		DAD357C015DB2BC200DCA70A /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD357AD15DB2BC200DCA70A /* SSKeychain.m */; };
 		DAD357C115DB2BC200DCA70A /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD357AD15DB2BC200DCA70A /* SSKeychain.m */; };
+		DAD357D315DB2CA800DCA70A /* WKAuthorize.h in Headers */ = {isa = PBXBuildFile; fileRef = DAD357CF15DB2CA700DCA70A /* WKAuthorize.h */; };
+		DAD357D415DB2CA800DCA70A /* WKAuthorize.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD357D015DB2CA700DCA70A /* WKAuthorize.m */; };
+		DAD357D515DB2CA800DCA70A /* WKAuthorize.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD357D015DB2CA700DCA70A /* WKAuthorize.m */; };
+		DAD357D615DB2CA800DCA70A /* WKAuthorizeWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = DAD357D115DB2CA700DCA70A /* WKAuthorizeWebView.h */; };
+		DAD357D715DB2CA800DCA70A /* WKAuthorizeWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD357D215DB2CA800DCA70A /* WKAuthorizeWebView.m */; };
+		DAD357D815DB2CA800DCA70A /* WKAuthorizeWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD357D215DB2CA800DCA70A /* WKAuthorizeWebView.m */; };
+		DAD357DE15DB375400DCA70A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD357DD15DB375400DCA70A /* Security.framework */; };
 		DAF6FF6B15DA320F0031871E /* AFOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DA90301415DA2DB500F02E0D /* AFOAuth2Client.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
@@ -100,6 +107,11 @@
 		DACCEE6C15DA07ED00A8BD52 /* WeiboKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeiboKit-Prefix.pch"; sourceTree = "<group>"; };
 		DAD357AC15DB2BC200DCA70A /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		DAD357AD15DB2BC200DCA70A /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		DAD357CF15DB2CA700DCA70A /* WKAuthorize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKAuthorize.h; sourceTree = "<group>"; };
+		DAD357D015DB2CA700DCA70A /* WKAuthorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKAuthorize.m; sourceTree = "<group>"; };
+		DAD357D115DB2CA700DCA70A /* WKAuthorizeWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKAuthorizeWebView.h; sourceTree = "<group>"; };
+		DAD357D215DB2CA800DCA70A /* WKAuthorizeWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKAuthorizeWebView.m; sourceTree = "<group>"; };
+		DAD357DD15DB375400DCA70A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAD357DE15DB375400DCA70A /* Security.framework in Frameworks */,
 				DACCEE6915DA07ED00A8BD52 /* Foundation.framework in Frameworks */,
 				DACCEE9315DA08EB00A8BD52 /* CoreLocation.framework in Frameworks */,
 			);
@@ -144,6 +157,7 @@
 		DA66F8F115D5DE91000C5B0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DAD357DD15DB375400DCA70A /* Security.framework */,
 				DA1B27D515D7300400C7A7EE /* CoreLocation.framework */,
 				DA66F8F415D5DE91000C5B0B /* Foundation.framework */,
 				DA8EE9F915DA0C6C00F5F0BC /* Cocoa.framework */,
@@ -162,6 +176,10 @@
 				DA1B27D215D72F6D00C7A7EE /* WKStatus.m */,
 				DA1B27D715D7319200C7A7EE /* WKUser.h */,
 				DA1B27D815D7319200C7A7EE /* WKUser.m */,
+				DAD357CF15DB2CA700DCA70A /* WKAuthorize.h */,
+				DAD357D015DB2CA700DCA70A /* WKAuthorize.m */,
+				DAD357D115DB2CA700DCA70A /* WKAuthorizeWebView.h */,
+				DAD357D215DB2CA800DCA70A /* WKAuthorizeWebView.m */,
 			);
 			path = WeiboKit;
 			sourceTree = "<group>";
@@ -257,6 +275,8 @@
 				DA90305415DA2DD500F02E0D /* AFXMLRequestOperation.h in Headers */,
 				DA90305715DA2DD500F02E0D /* UIImageView+AFNetworking.h in Headers */,
 				DAD357BF15DB2BC200DCA70A /* SSKeychain.h in Headers */,
+				DAD357D315DB2CA800DCA70A /* WKAuthorize.h in Headers */,
+				DAD357D615DB2CA800DCA70A /* WKAuthorizeWebView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +324,7 @@
 		DA66F8E515D5DE91000C5B0B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = PW;
+				CLASSPREFIX = WK;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Paul Wood";
 			};
@@ -352,6 +372,8 @@
 				DA90305615DA2DD500F02E0D /* AFXMLRequestOperation.m in Sources */,
 				DA90305915DA2DD500F02E0D /* UIImageView+AFNetworking.m in Sources */,
 				DAD357C115DB2BC200DCA70A /* SSKeychain.m in Sources */,
+				DAD357D515DB2CA800DCA70A /* WKAuthorize.m in Sources */,
+				DAD357D815DB2CA800DCA70A /* WKAuthorizeWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +396,8 @@
 				DA90305815DA2DD500F02E0D /* UIImageView+AFNetworking.m in Sources */,
 				DAF6FF6B15DA320F0031871E /* AFOAuth2Client.m in Sources */,
 				DAD357C015DB2BC200DCA70A /* SSKeychain.m in Sources */,
+				DAD357D415DB2CA800DCA70A /* WKAuthorize.m in Sources */,
+				DAD357D715DB2CA800DCA70A /* WKAuthorizeWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
