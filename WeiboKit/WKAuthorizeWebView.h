@@ -31,7 +31,7 @@
     
 }
 
-@property (nonatomic, assign) id<WBAuthorizeWebViewDelegate> delegate;
+@property (nonatomic, assign) id<WKAuthorizeWebViewDelegate> delegate;
 
 - (void)loadRequestWithURL:(NSURL *)url;
 
