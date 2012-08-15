@@ -8,17 +8,14 @@
 
 #import "AFOAuth2Client.h"
 #import <CoreLocation/CoreLocation.h>
+#import "WKAuthorize.h"
 
 @class WKStatus;
 @class WKUser;
 
-@interface WKOAuth2Client : AFOAuth2Client {
-    NSString *_oauthToken;
-    NSString *_uid;
+@interface WKOAuth2Client : AFOAuth2Client < WKAuthorizeDelegate > {
+    
 }
-
-@property (nonatomic, retain) NSString *oauthToken;
-@property (nonatomic, retain) NSString *uid;
 
 + (id)sharedInstance;
 

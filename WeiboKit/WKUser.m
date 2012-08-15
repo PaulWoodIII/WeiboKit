@@ -52,7 +52,7 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary{
     self = [super init];
     if (self) {
-        self.user_id = [dictionary objectForKey:@"id"];
+        self.user_id = [[dictionary objectForKey:@"id"] description];
         self.screen_name = [dictionary objectForKey:@"screen_name"];
         // TO DO
         // Add all the other params

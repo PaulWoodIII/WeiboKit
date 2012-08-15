@@ -7,9 +7,23 @@
 //
 
 #import "WKOAuth2Client.h"
+#import "WKApplicationDefaults.h"
 #import "AFJSONRequestOperation.h"
 #import "WKStatus.h"
 #import "WKUser.h"
+#import "WKOAuthUser.h"
+
+#ifndef kWKClientAppKey
+#error
+#endif
+
+#ifndef kWKClientAppSecret
+#error
+#endif
+
+#ifndef kWKClientRedirectURL
+#error
+#endif
 
 @implementation WKOAuth2Client
 
@@ -38,7 +52,7 @@
 
 - (NSMutableDictionary *)defaultGetParameters{
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    [parameters setObject:self.oauthToken forKey:@"access_token"];
+    [parameters setObject:[WKOAuthUser currentUser].accessToken forKey:@"access_token"];
     return parameters;
 }
 
@@ -54,6 +68,30 @@
         [statuses addObject:status];
     }
     return statuses;
+}
+
+
+#pragma mark -
+#pragma mark Weibo WebView OAuth 2.0
+
+- (void)startAuthorization{
+    WKAuthorize *auth = [[WKAuthorize alloc] initWithAppKey:kWKClientAppKey appSecret:kWKClientAppSecret];
+    [auth setRedirectURI:kWKClientRedirectURL];
+    [auth setDelegate:self];
+    [auth startAuthorize];
+}
+
+- (void)authorize:(WKAuthorize *)authorize didSucceedWithAccessToken:(NSString *)accessToken
+           userID:(NSString *)userID
+        expiresIn:(NSInteger)seconds{
+    WKOAuthUser *newUser = [[WKOAuthUser alloc] init];
+    newUser.user_id = userID;
+    newUser.accessToken = accessToken;
+    [WKOAuthUser setCurrentUser:newUser];
+}
+
+- (void)authorize:(WKAuthorize *)authorize didFailWithError:(NSError *)error{
+    
 }
 
 #pragma mark -
@@ -429,7 +467,7 @@
 
 - (void)getUserDetailsWithSuccess:(void (^)(WKUser *user))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
-    [parameters setObject:self.uid forKey:@"uid"];
+    [parameters setObject:[WKOAuthUser currentUser].user_id forKey:@"uid"];
     [[WKOAuth2Client sharedInstance] getPath:@"users/show.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){

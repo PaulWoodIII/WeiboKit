@@ -10,3 +10,4 @@ build/
 *UserInterfaceState.xcuserstate
 xcuserdata
 *.xcworkspace
+WeiboKit/WKApplicationDefaults.h
