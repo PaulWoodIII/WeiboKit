@@ -25,7 +25,7 @@
 
 @end
 
-@interface WKAuthorize : NSObject <WBAuthorizeWebViewDelegate> 
+@interface WKAuthorize : NSObject <WKAuthorizeWebViewDelegate>
 {
 
 }
@@ -33,7 +33,7 @@
 @property (nonatomic, retain) NSString *appKey;
 @property (nonatomic, retain) NSString *appSecret;
 @property (nonatomic, retain) NSString *redirectURI;
-@property (nonatomic, assign) id<WBAuthorizeDelegate> delegate;
+@property (nonatomic, assign) id<WKAuthorizeDelegate> delegate;
 
 - (id)initWithAppKey:(NSString *)theAppKey appSecret:(NSString *)theAppSecret;
 
