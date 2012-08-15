@@ -4,3 +4,6 @@
 [submodule "Vendor/AFOAuth2Client"]
 	path = Vendor/AFOAuth2Client
 	url = https://github.com/AFNetworking/AFOAuth2Client.git
+[submodule "Vendor/sskeychain"]
+	path = Vendor/sskeychain
+	url = https://github.com/samsoffes/sskeychain.git

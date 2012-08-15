@@ -44,6 +44,9 @@
 		DACCEE9F15DA090E00A8BD52 /* WKOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F99D15D62F69000C5B0B /* WKOAuth2Client.m */; };
 		DACCEEA015DA090E00A8BD52 /* WKStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1B27D215D72F6D00C7A7EE /* WKStatus.m */; };
 		DACCEEA115DA090E00A8BD52 /* WKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1B27D815D7319200C7A7EE /* WKUser.m */; };
+		DAD357BF15DB2BC200DCA70A /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = DAD357AC15DB2BC200DCA70A /* SSKeychain.h */; };
+		DAD357C015DB2BC200DCA70A /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD357AD15DB2BC200DCA70A /* SSKeychain.m */; };
+		DAD357C115DB2BC200DCA70A /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD357AD15DB2BC200DCA70A /* SSKeychain.m */; };
 		DAF6FF6B15DA320F0031871E /* AFOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DA90301415DA2DB500F02E0D /* AFOAuth2Client.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
@@ -95,6 +98,8 @@
 		DA90303A15DA2DD500F02E0D /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		DACCEE6815DA07ED00A8BD52 /* libWeiboKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWeiboKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACCEE6C15DA07ED00A8BD52 /* WeiboKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeiboKit-Prefix.pch"; sourceTree = "<group>"; };
+		DAD357AC15DB2BC200DCA70A /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		DAD357AD15DB2BC200DCA70A /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +169,7 @@
 		DA902FD015DA2DB500F02E0D /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				DAD357A615DB2BC200DCA70A /* sskeychain */,
 				DA902FD115DA2DB500F02E0D /* AFNetworking */,
 				DA90301215DA2DB500F02E0D /* AFOAuth2Client */,
 			);
@@ -223,6 +229,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DAD357A615DB2BC200DCA70A /* sskeychain */ = {
+			isa = PBXGroup;
+			children = (
+				DAD357AC15DB2BC200DCA70A /* SSKeychain.h */,
+				DAD357AD15DB2BC200DCA70A /* SSKeychain.m */,
+			);
+			path = sskeychain;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -241,6 +256,7 @@
 				DA90305115DA2DD500F02E0D /* AFURLConnectionOperation.h in Headers */,
 				DA90305415DA2DD500F02E0D /* AFXMLRequestOperation.h in Headers */,
 				DA90305715DA2DD500F02E0D /* UIImageView+AFNetworking.h in Headers */,
+				DAD357BF15DB2BC200DCA70A /* SSKeychain.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +351,7 @@
 				DA90305315DA2DD500F02E0D /* AFURLConnectionOperation.m in Sources */,
 				DA90305615DA2DD500F02E0D /* AFXMLRequestOperation.m in Sources */,
 				DA90305915DA2DD500F02E0D /* UIImageView+AFNetworking.m in Sources */,
+				DAD357C115DB2BC200DCA70A /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +373,7 @@
 				DA90305515DA2DD500F02E0D /* AFXMLRequestOperation.m in Sources */,
 				DA90305815DA2DD500F02E0D /* UIImageView+AFNetworking.m in Sources */,
 				DAF6FF6B15DA320F0031871E /* AFOAuth2Client.m in Sources */,
+				DAD357C015DB2BC200DCA70A /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
