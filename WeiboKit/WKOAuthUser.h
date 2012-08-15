@@ -11,6 +11,7 @@
 @interface WKOAuthUser : WKUser
 
 @property (nonatomic, strong) NSString *accessToken;
+@property NSUInteger expires_in;
 
 + (WKOAuthUser *)currentUser;
 + (void)setCurrentUser:(WKOAuthUser *)user;

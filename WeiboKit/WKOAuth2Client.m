@@ -9,6 +9,7 @@
 #import "WKOAuth2Client.h"
 #import "WKApplicationDefaults.h"
 #import "AFJSONRequestOperation.h"
+#import "AFJSONUtilities.h"
 #import "WKStatus.h"
 #import "WKUser.h"
 #import "WKOAuthUser.h"
@@ -75,23 +76,69 @@
 #pragma mark Weibo WebView OAuth 2.0
 
 - (void)startAuthorization{
-    WKAuthorize *auth = [[WKAuthorize alloc] initWithAppKey:kWKClientAppKey appSecret:kWKClientAppSecret];
-    [auth setRedirectURI:kWKClientRedirectURL];
-    [auth setDelegate:self];
-    [auth startAuthorize];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?display=mobile&response_type=code&redirect_uri=%@&client_id=%@", kWKClientRedirectURL, kWKClientAppKey];
+    NSLog(@"%@", urlString);
+    WKAuthorizeWebView *webView = [[WKAuthorizeWebView alloc] init];
+    [webView setDelegate:self];
+    [webView loadRequestWithURL:[NSURL URLWithString:urlString]];
+    [webView show:YES];
 }
 
-- (void)authorize:(WKAuthorize *)authorize didSucceedWithAccessToken:(NSString *)accessToken
-           userID:(NSString *)userID
-        expiresIn:(NSInteger)seconds{
-    WKOAuthUser *newUser = [[WKOAuthUser alloc] init];
-    newUser.user_id = userID;
-    newUser.accessToken = accessToken;
-    [WKOAuthUser setCurrentUser:newUser];
+- (void)requestAccessTokenWithAuthorizeCode:(NSString *)code
+{
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.weibo.com/oauth2/"]];
+    [client postPath:[NSString stringWithFormat:@"access_token?client_id=%@&client_secret=%@&grant_type=authorization_code&redirect_uri=%@&code=%@",
+                      kWKClientAppKey, kWKClientAppSecret, kWKClientRedirectURL, code]
+          parameters:nil
+             success:^(AFHTTPRequestOperation *operation, id responseObject){
+                 NSError *error = nil;
+                 id responseJSON;
+                 if ([responseObject length] == 0) {
+                     responseJSON = nil;
+                 } else {
+                     responseJSON = AFJSONDecode(responseObject, &error);
+                 }
+                 
+                 BOOL success = NO;
+                 
+                 if ([responseJSON isKindOfClass:[NSDictionary class]])
+                 {
+                     NSDictionary *dict = (NSDictionary *)responseJSON;
+                     
+                     NSString *token = [dict objectForKey:@"access_token"];
+                     NSString *userID = [dict objectForKey:@"uid"];
+                     NSInteger seconds = [[dict objectForKey:@"expires_in"] intValue];
+                     
+                     success = token && userID;
+                     if (success) {
+                         WKOAuthUser *newUser = [[WKOAuthUser alloc] init];
+                         newUser.user_id = userID;
+                         newUser.accessToken = token;
+                         newUser.expires_in = seconds;
+                         [WKOAuthUser setCurrentUser:newUser];
+                     }
+                     // TODO Maybe
+                     // Post a Success Here
+                 }
+                 // TODO Maybe
+                 // Post a Failure Here
+                 
+             }
+             failure:^(AFHTTPRequestOperation *operation, NSError *error){
+                 // TODO
+                 // Post a Failure Here
+             }];
 }
 
-- (void)authorize:(WKAuthorize *)authorize didFailWithError:(NSError *)error{
+- (void)authorizeWebView:(WKAuthorizeWebView *)webView didReceiveAuthorizeCode:(NSString *)code
+{
+    [webView hide:YES];
     
+    // if not canceled
+    if (![code isEqualToString:@"21330"])
+    {
+        [self requestAccessTokenWithAuthorizeCode:code];
+    }
 }
 
 #pragma mark -

@@ -8,12 +8,12 @@
 
 #import "AFOAuth2Client.h"
 #import <CoreLocation/CoreLocation.h>
-#import "WKAuthorize.h"
+#import "WKAuthorizeWebView.h"
 
 @class WKStatus;
 @class WKUser;
 
-@interface WKOAuth2Client : AFOAuth2Client < WKAuthorizeDelegate > {
+@interface WKOAuth2Client : AFOAuth2Client < WKAuthorizeWebViewDelegate > {
     
 }
 
