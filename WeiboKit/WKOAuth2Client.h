@@ -22,6 +22,8 @@
 #pragma mark -
 #pragma mark OAuth 2.0 Authorization API
 
+- (void)startAuthorization;
+
 #pragma mark -
 #pragma mark Weibo API
 // Statuses and Posting Statuses
