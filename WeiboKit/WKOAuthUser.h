@@ -10,6 +10,8 @@
 
 @interface WKOAuthUser : WKUser
 
+extern NSString *const kWKCurrentUserChangedNotificationName;
+
 @property (nonatomic, strong) NSString *accessToken;
 @property NSUInteger expires_in;
 

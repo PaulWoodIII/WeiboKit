@@ -11,9 +11,7 @@
 
 @implementation WKOAuthUser
 
-// TO DO:
-// Add a notification of the user change
-//NSString *const kWKCurrentUserChangedNotificationName = @"WKCurrentUserChangedNotification";
+NSString *const kWKCurrentUserChangedNotificationName = @"WKCurrentUserChangedNotification";
 
 NSString *const kWKKeychainServiceName = @"WeiboV2";
 static NSString *const kWKUserIDKey = @"WKUserID";
@@ -33,8 +31,10 @@ static WKOAuthUser *__currentUser = nil;
 		}
         //Create the user
 		__currentUser = [[WKOAuthUser alloc] init];
-        __currentUser.user_id = 
+        __currentUser.user_id =
 		__currentUser.accessToken = accessToken;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kWKCurrentUserChangedNotificationName object:__currentUser];
 	}
 	return __currentUser;
 }
@@ -57,10 +57,8 @@ static WKOAuthUser *__currentUser = nil;
 	[SSKeychain setPassword:user.accessToken forService:kWKKeychainServiceName account:user.user_id];
 	
 	__currentUser = user;
-	
-    // TO DO:
-    // Add a notification of the user change
-	//[[NSNotificationCenter defaultCenter] postNotificationName:kWKCurrentUserChangedNotificationName object:user];
+
+	[[NSNotificationCenter defaultCenter] postNotificationName:kWKCurrentUserChangedNotificationName object:user];
 }
 
 

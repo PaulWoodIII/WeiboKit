@@ -26,6 +26,9 @@
 #error
 #endif
 
+NSString *const kWKAuthorizationSuccessfullNotificationName = @"kWKAuthorizationSuccessfullNotificationName";
+NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFailureNotificationName";
+
 @implementation WKOAuth2Client
 
 #define kWKAPIURL     @"https://api.weibo.com/2"
@@ -116,17 +119,17 @@
                          newUser.accessToken = token;
                          newUser.expires_in = seconds;
                          [WKOAuthUser setCurrentUser:newUser];
+                         [[NSNotificationCenter defaultCenter] postNotificationName:kWKAuthorizationSuccessfullNotificationName object:newUser];
                      }
-                     // TODO Maybe
-                     // Post a Success Here
+                     [[NSNotificationCenter defaultCenter] postNotificationName:kWKAuthorizationFailureNotificationName object:error];
                  }
-                 // TODO Maybe
-                 // Post a Failure Here
+                 else{
+                     [[NSNotificationCenter defaultCenter] postNotificationName:kWKAuthorizationFailureNotificationName object:nil];
+                 }
                  
              }
              failure:^(AFHTTPRequestOperation *operation, NSError *error){
-                 // TODO
-                 // Post a Failure Here
+                 [[NSNotificationCenter defaultCenter] postNotificationName:kWKAuthorizationFailureNotificationName object:error];
              }];
 }
 
@@ -518,16 +521,16 @@
     [[WKOAuth2Client sharedInstance] getPath:@"users/show.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
-        WKUser *user = [WKUser objectWithDictionary:(NSDictionary *)responseObject];
-        if (success) {
-            success(user);
-        }
-    }
-     failure:^(AFHTTPRequestOperation *operation, NSError *error){
-         if (failure) {
-             failure(operation, error);
-         }
-     }];
+                                         WKUser *user = [WKUser objectWithDictionary:(NSDictionary *)responseObject];
+                                         if (success) {
+                                             success(user);
+                                         }
+                                     }
+                                     failure:^(AFHTTPRequestOperation *operation, NSError *error){
+                                         if (failure) {
+                                             failure(operation, error);
+                                         }
+                                     }];
 }
 
 @end

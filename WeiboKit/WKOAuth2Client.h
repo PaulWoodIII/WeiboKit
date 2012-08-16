@@ -13,6 +13,9 @@
 @class WKStatus;
 @class WKUser;
 
+extern NSString *const kWKAuthorizationSuccessfullNotificationName;
+extern NSString *const kWKAuthorizationFailureNotificationName;
+
 @interface WKOAuth2Client : AFOAuth2Client < WKAuthorizeWebViewDelegate > {
     
 }
@@ -53,7 +56,7 @@
 - (void)getUserTimeline:(WKUser *)user sinceStatus:(WKStatus *)sinceStatus withMaximumStatus:(WKStatus *)maxStatus startingAtPage:(int)pageNum count:(int)count withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 // statuses/bilateral_timeline
-// Return the latest weibos of the users that are following the authenticating user and are being 
+// Return the latest weibos of the users that are following the authenticating user and are being
 - (void)getBilateralTimeline:(WKUser *)user withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 - (void)getBilateralTimeline:(WKUser *)user sinceStatus:(WKStatus *)sinceStatus startingAtPage:(int)pageNum count:(int)count withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 - (void)getBilateralTimeline:(WKUser *)user sinceStatus:(WKStatus *)sinceStatus withMaximumStatus:(WKStatus *)maxStatus startingAtPage:(int)pageNum count:(int)count withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
@@ -72,37 +75,37 @@
 
 //TODO
 /*
-// statuses/show
-- (void)showStatusWithID:(int)statusID withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-// statuses/repost Repost a weibo
-// Repost a weibo
-- (void)repostStatus:(WKStatus *)status withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-- (void)repostStatus:(WKStatus *)status withComment:(NSString *)comment withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-// statuses/destroy Delete a weibo
-// Delete a weibo
-- (void)destroyStatus:(WKStatus *)status withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-// statuses/update 
-// Post a weibo
-- (void)updateStatusWithComment:(NSString *)comment withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-- (void)updateStatusWithComment:(NSString *)comment withLat:(float)lat withLng:(float)lng withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-// statuses/upload
-// Upload a picture with a new weibo
-- (void)uploadStatusWithComment:(NSString *)comment withImage:(UIImage *)image withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-- (void)uploadStatusWithComment:(NSString *)comment withImage:(UIImage *)image withLat:(float)lat withLng:(float)lng withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-*/ 
+ // statuses/show
+ - (void)showStatusWithID:(int)statusID withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
  
+ // statuses/repost Repost a weibo
+ // Repost a weibo
+ - (void)repostStatus:(WKStatus *)status withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ - (void)repostStatus:(WKStatus *)status withComment:(NSString *)comment withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ 
+ // statuses/destroy Delete a weibo
+ // Delete a weibo
+ - (void)destroyStatus:(WKStatus *)status withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ 
+ // statuses/update
+ // Post a weibo
+ - (void)updateStatusWithComment:(NSString *)comment withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ - (void)updateStatusWithComment:(NSString *)comment withLat:(float)lat withLng:(float)lng withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ 
+ // statuses/upload
+ // Upload a picture with a new weibo
+ - (void)uploadStatusWithComment:(NSString *)comment withImage:(UIImage *)image withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ - (void)uploadStatusWithComment:(NSString *)comment withImage:(UIImage *)image withLat:(float)lat withLng:(float)lng withSuccess:(void (^)(NSMutableArray *statuses))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ 
+ */
+
 #pragma mark -
 #pragma mark Comments API
 // Comments and Posting Comments
- 
+
 #pragma mark -
 #pragma mark Users API
-// Friends & Followers 
+// Friends & Followers
 - (void)getUserDetailsWithSuccess:(void (^)(WKUser *user))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 #pragma mark -
