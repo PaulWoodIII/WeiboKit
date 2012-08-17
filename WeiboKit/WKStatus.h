@@ -12,6 +12,7 @@
 @class WKUser;
 
 @interface WKStatus : NSObject {
+    NSNumber *idNumber;
     NSString *idString;
     NSString *mid;
     NSString *text;
@@ -36,6 +37,7 @@
     // WKUser *user;
 }
 
+@property (nonatomic, retain) NSNumber *idNumber;
 @property (nonatomic, retain) NSString *idString;
 @property (nonatomic, retain) NSString *mid;
 @property (nonatomic, retain) NSString *text;

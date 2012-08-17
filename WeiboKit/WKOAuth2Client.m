@@ -177,8 +177,16 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                        withSuccess:(void (^)(NSMutableArray *statuses))success
                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
-    [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
-    [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    if (sinceStatus) {
+        [parameters setObject:[sinceStatus idNumber] forKey:@"since_id"];
+    }
+    if (pageNum > 0) {
+        [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
+
+    }
+    if (count > 0) {
+        [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    }
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/home_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
@@ -191,9 +199,9 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                                          if (failure) {
                                              failure(operation, error);
                                          }
-                                     }];
-    
+                                     }];    
 }
+
 - (void)getHomeTimelineSinceStatus:(WKStatus *)sinceStatus
                  withMaximumStatus:(WKStatus *)maxStatus
                     startingAtPage:(int)pageNum
@@ -201,10 +209,19 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                        withSuccess:(void (^)(NSMutableArray *statuses))success
                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
-    [parameters setObject:[sinceStatus idString] forKey:@"since_id"];
-    [parameters setObject:[maxStatus idString] forKey:@"max_id"];
-    [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
-    [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    if (sinceStatus) {
+        [parameters setObject:[sinceStatus idNumber] forKey:@"since_id"];
+    }
+    if (maxStatus) {
+        [parameters setObject:[maxStatus idNumber] forKey:@"since_id"];
+    }
+    if (pageNum > 0) {
+        [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
+        
+    }
+    if (count > 0) {
+        [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    }
     
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/home_timeline.json"
                                   parameters:parameters
@@ -251,8 +268,16 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                           withSuccess:(void (^)(NSMutableArray *statuses))success
                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
-    [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
-    [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    if (sinceStatus) {
+        [parameters setObject:[sinceStatus idNumber] forKey:@"since_id"];
+    }
+    if (pageNum > 0) {
+        [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
+        
+    }
+    if (count > 0) {
+        [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    }
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/friends_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
@@ -275,10 +300,19 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                           withSuccess:(void (^)(NSMutableArray *statuses))success
                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
-    [parameters setObject:[sinceStatus idString] forKey:@"since_id"];
-    [parameters setObject:[maxStatus idString] forKey:@"max_id"];
-    [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
-    [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    if (sinceStatus) {
+        [parameters setObject:[sinceStatus idNumber] forKey:@"since_id"];
+    }
+    if (maxStatus) {
+        [parameters setObject:[maxStatus idNumber] forKey:@"since_id"];
+    }
+    if (pageNum > 0) {
+        [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
+        
+    }
+    if (count > 0) {
+        [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    }
     
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/friends_timeline.json"
                                   parameters:parameters
@@ -304,7 +338,9 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
             withSuccess:(void (^)(NSMutableArray *statuses))success
                 failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
-    [parameters setObject:[user user_id] forKey:@"uid"];
+    if (user) {
+        [parameters setObject:[user user_id] forKey:@"uid"];
+    }
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/user_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
@@ -327,9 +363,19 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
             withSuccess:(void (^)(NSMutableArray *statuses))success
                 failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
-    [parameters setObject:[user user_id] forKey:@"uid"];
-    [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
-    [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    if (user) {
+        [parameters setObject:[user user_id] forKey:@"uid"];
+    }
+    if (sinceStatus) {
+        [parameters setObject:[sinceStatus idNumber] forKey:@"since_id"];
+    }
+    if (pageNum > 0) {
+        [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
+        
+    }
+    if (count > 0) {
+        [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    }
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/user_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
@@ -353,11 +399,23 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
             withSuccess:(void (^)(NSMutableArray *statuses))success
                 failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
-    [parameters setObject:[user user_id] forKey:@"uid"];
-    [parameters setObject:[sinceStatus idString] forKey:@"since_id"];
-    [parameters setObject:[maxStatus idString] forKey:@"max_id"];
-    [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
-    [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    
+    if (user) {
+        [parameters setObject:[user user_id] forKey:@"uid"];
+    }
+    if (sinceStatus) {
+        [parameters setObject:[sinceStatus idNumber] forKey:@"since_id"];
+    }
+    if (maxStatus) {
+        [parameters setObject:[maxStatus idNumber] forKey:@"since_id"];
+    }
+    if (pageNum > 0) {
+        [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
+        
+    }
+    if (count > 0) {
+        [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    }
     
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/user_timeline.json"
                                   parameters:parameters
@@ -406,9 +464,19 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                  withSuccess:(void (^)(NSMutableArray *statuses))success
                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
-    [parameters setObject:[user user_id] forKey:@"uid"];
-    [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
-    [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    if (user) {
+        [parameters setObject:[user user_id] forKey:@"uid"];
+    }
+    if (sinceStatus) {
+        [parameters setObject:[sinceStatus idNumber] forKey:@"since_id"];
+    }
+    if (pageNum > 0) {
+        [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
+        
+    }
+    if (count > 0) {
+        [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    }
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/user_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
@@ -432,11 +500,22 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                  withSuccess:(void (^)(NSMutableArray *statuses))success
                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
-    [parameters setObject:[user user_id] forKey:@"uid"];
-    [parameters setObject:[sinceStatus idString] forKey:@"since_id"];
-    [parameters setObject:[maxStatus idString] forKey:@"max_id"];
-    [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
-    [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    if (user) {
+        [parameters setObject:[user user_id] forKey:@"uid"];
+    }
+    if (sinceStatus) {
+        [parameters setObject:[sinceStatus idNumber] forKey:@"since_id"];
+    }
+    if (maxStatus) {
+        [parameters setObject:[maxStatus idNumber] forKey:@"since_id"];
+    }
+    if (pageNum > 0) {
+        [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
+        
+    }
+    if (count > 0) {
+        [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
+    }
     
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/user_timeline.json"
                                   parameters:parameters
