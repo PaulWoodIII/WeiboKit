@@ -10,6 +10,7 @@
 #import "WKApplicationDefaults.h"
 #import "AFJSONRequestOperation.h"
 #import "AFJSONUtilities.h"
+#import "WKList.h"
 #import "WKStatus.h"
 #import "WKUser.h"
 #import "WKOAuthUser.h"
@@ -59,21 +60,6 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
     [parameters setObject:[WKOAuthUser currentUser].accessToken forKey:@"access_token"];
     return parameters;
 }
-
-- (NSMutableArray *)statusArrayWithResponse:(id)response{
-    if (![response isKindOfClass:[NSDictionary class]]) {
-        return nil;
-    }
-    NSArray *JSONStatuses = [response objectForKey:@"statuses"];
-    
-    NSMutableArray *statuses = [NSMutableArray arrayWithCapacity:[JSONStatuses count]];
-    for (NSDictionary *taskDictionary in JSONStatuses) {
-        WKStatus *status = [WKStatus objectWithDictionary:taskDictionary];
-        [statuses addObject:status];
-    }
-    return statuses;
-}
-
 
 #pragma mark -
 #pragma mark Weibo WebView OAuth 2.0
@@ -152,15 +138,15 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
 // statuses/home_timeline
 // Return the authenticating user’s and his friends’ latest weibos
 
-- (void)getHomeTimelineWithSuccess:(void (^)(NSMutableArray *statuses))success
+- (void)getHomeTimelineWithSuccess:(void (^)(WKList *list))success
                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/home_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                         NSMutableArray *statuses = [self statusArrayWithResponse:responseObject];
+                                         WKList *list = [WKList listWithResponse:responseObject];
                                          if (success) {
-                                             success(statuses);
+                                             success(list);
                                          }
                                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -174,7 +160,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
 - (void)getHomeTimelineSinceStatus:(WKStatus *)sinceStatus
                     startingAtPage:(int)pageNum
                              count:(int)count
-                       withSuccess:(void (^)(NSMutableArray *statuses))success
+                       withSuccess:(void (^)(WKList *list))success
                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     if (sinceStatus) {
@@ -190,9 +176,9 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/home_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                         NSMutableArray *statuses = [self statusArrayWithResponse:responseObject];
+                                         WKList *list = [WKList listWithResponse:responseObject];
                                          if (success) {
-                                             success(statuses);
+                                             success(list);
                                          }
                                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -206,7 +192,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                  withMaximumStatus:(WKStatus *)maxStatus
                     startingAtPage:(int)pageNum
                              count:(int)count
-                       withSuccess:(void (^)(NSMutableArray *statuses))success
+                       withSuccess:(void (^)(WKList *list))success
                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     if (sinceStatus) {
@@ -226,9 +212,9 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/home_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                         NSMutableArray *statuses = [self statusArrayWithResponse:responseObject];
+                                         WKList *list = [WKList listWithResponse:responseObject];
                                          if (success) {
-                                             success(statuses);
+                                             success(list);
                                          }
                                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -243,15 +229,15 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
 // statuses/friends_timeline
 // Return the authenticating user’s and his friends’ latest weibos
 
-- (void)getFriendsTimelineWithSuccess:(void (^)(NSMutableArray *statuses))success
+- (void)getFriendsTimelineWithSuccess:(void (^)(WKList *list))success
                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/friends_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                         NSMutableArray *statuses = [self statusArrayWithResponse:responseObject];
+                                         WKList *list = [WKList listWithResponse:responseObject];
                                          if (success) {
-                                             success(statuses);
+                                             success(list);
                                          }
                                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -265,7 +251,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
 - (void)getFriendsTimelineSinceStatus:(WKStatus *)sinceStatus
                        startingAtPage:(int)pageNum
                                 count:(int)count
-                          withSuccess:(void (^)(NSMutableArray *statuses))success
+                          withSuccess:(void (^)(WKList *list))success
                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     if (sinceStatus) {
@@ -281,9 +267,9 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/friends_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                         NSMutableArray *statuses = [self statusArrayWithResponse:responseObject];
+                                         WKList *list = [WKList listWithResponse:responseObject];
                                          if (success) {
-                                             success(statuses);
+                                             success(list);
                                          }
                                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -297,7 +283,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                     withMaximumStatus:(WKStatus *)maxStatus
                        startingAtPage:(int)pageNum
                                 count:(int)count
-                          withSuccess:(void (^)(NSMutableArray *statuses))success
+                          withSuccess:(void (^)(WKList *list))success
                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     if (sinceStatus) {
@@ -317,9 +303,9 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/friends_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                         NSMutableArray *statuses = [self statusArrayWithResponse:responseObject];
+                                         WKList *list = [WKList listWithResponse:responseObject];
                                          if (success) {
-                                             success(statuses);
+                                             success(list);
                                          }
                                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -335,7 +321,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
 // Return the latest weibos of one user
 
 - (void)getUserTimeline:(WKUser *)user
-            withSuccess:(void (^)(NSMutableArray *statuses))success
+            withSuccess:(void (^)(WKList *list))success
                 failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     if (user) {
@@ -344,9 +330,9 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/user_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                         NSMutableArray *statuses = [self statusArrayWithResponse:responseObject];
+                                         WKList *list = [WKList listWithResponse:responseObject];
                                          if (success) {
-                                             success(statuses);
+                                             success(list);
                                          }
                                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -360,7 +346,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
             sinceStatus:(WKStatus *)sinceStatus
          startingAtPage:(int)pageNum
                   count:(int)count
-            withSuccess:(void (^)(NSMutableArray *statuses))success
+            withSuccess:(void (^)(WKList *list))success
                 failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     if (user) {
@@ -379,9 +365,9 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/user_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                         NSMutableArray *statuses = [self statusArrayWithResponse:responseObject];
+                                         WKList *list = [WKList listWithResponse:responseObject];
                                          if (success) {
-                                             success(statuses);
+                                             success(list);
                                          }
                                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -396,7 +382,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
       withMaximumStatus:(WKStatus *)maxStatus
          startingAtPage:(int)pageNum
                   count:(int)count
-            withSuccess:(void (^)(NSMutableArray *statuses))success
+            withSuccess:(void (^)(WKList *list))success
                 failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     
@@ -420,9 +406,9 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/user_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                         NSMutableArray *statuses = [self statusArrayWithResponse:responseObject];
+                                         WKList *list = [WKList listWithResponse:responseObject];
                                          if (success) {
-                                             success(statuses);
+                                             success(list);
                                          }
                                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -438,16 +424,16 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
 // Return the latest weibos of the users that are following the authenticating user and are being
 
 - (void)getBilateralTimeline:(WKUser *)user
-                 withSuccess:(void (^)(NSMutableArray *statuses))success
+                 withSuccess:(void (^)(WKList *list))success
                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     [parameters setObject:[user user_id] forKey:@"uid"];
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/user_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                         NSMutableArray *statuses = [self statusArrayWithResponse:responseObject];
+                                         WKList *list = [WKList listWithResponse:responseObject];
                                          if (success) {
-                                             success(statuses);
+                                             success(list);
                                          }
                                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -461,7 +447,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                  sinceStatus:(WKStatus *)sinceStatus
               startingAtPage:(int)pageNum
                        count:(int)count
-                 withSuccess:(void (^)(NSMutableArray *statuses))success
+                 withSuccess:(void (^)(WKList *list))success
                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     if (user) {
@@ -480,9 +466,9 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/user_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                         NSMutableArray *statuses = [self statusArrayWithResponse:responseObject];
+                                         WKList *list = [WKList listWithResponse:responseObject];
                                          if (success) {
-                                             success(statuses);
+                                             success(list);
                                          }
                                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -497,7 +483,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
            withMaximumStatus:(WKStatus *)maxStatus
               startingAtPage:(int)pageNum
                        count:(int)count
-                 withSuccess:(void (^)(NSMutableArray *statuses))success
+                 withSuccess:(void (^)(WKList *list))success
                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     if (user) {
@@ -520,9 +506,9 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/user_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                         NSMutableArray *statuses = [self statusArrayWithResponse:responseObject];
+                                         WKList *list = [WKList listWithResponse:responseObject];
                                          if (success) {
-                                             success(statuses);
+                                             success(list);
                                          }
                                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -538,7 +524,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
 // Return the latest of repost weibos of a original weibo
 
 - (void)getRepostForStatus:(WKStatus *)users
-               withSuccess:(void (^)(NSMutableArray *statuses))success
+               withSuccess:(void (^)(WKList *list))success
                    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     
 }
@@ -547,7 +533,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                sinceStatus:(WKStatus *)sinceStatus
             startingAtPage:(int)pageNum
                      count:(int)count
-               withSuccess:(void (^)(NSMutableArray *statuses))success
+               withSuccess:(void (^)(WKList *list))success
                    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     
 }
@@ -557,7 +543,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
          withMaximumStatus:(WKStatus *)maxStatus
             startingAtPage:(int)pageNum
                      count:(int)count
-               withSuccess:(void (^)(NSMutableArray *statuses))success
+               withSuccess:(void (^)(WKList *list))success
                    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     
 }
@@ -567,7 +553,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
 // statuses/mentions.json
 // Return the latest weibos metioned the authenticating user
 
-- (void)getMentionsWithSuccess:(void (^)(NSMutableArray *statuses))success
+- (void)getMentionsWithSuccess:(void (^)(WKList *list))success
                        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     
 }
@@ -576,7 +562,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                  sinceStatus:(WKStatus *)sinceStatus
               startingAtPage:(int)pageNum
                        count:(int)count
-                 withSuccess:(void (^)(NSMutableArray *statuses))success
+                 withSuccess:(void (^)(WKList *list))success
                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     
 }
@@ -586,7 +572,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
            withMaximumStatus:(WKStatus *)maxStatus
               startingAtPage:(int)pageNum
                        count:(int)count
-                 withSuccess:(void (^)(NSMutableArray *statuses))success
+                 withSuccess:(void (^)(WKList *list))success
                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     
 }

@@ -39,6 +39,7 @@
 		DA90305715DA2DD500F02E0D /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = DA90303915DA2DD500F02E0D /* UIImageView+AFNetworking.h */; };
 		DA90305815DA2DD500F02E0D /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = DA90303A15DA2DD500F02E0D /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DA90305915DA2DD500F02E0D /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = DA90303A15DA2DD500F02E0D /* UIImageView+AFNetworking.m */; };
+		DACCE37815DE2EEC00DF8F36 /* WKList.m in Sources */ = {isa = PBXBuildFile; fileRef = DACCE37715DE2EEC00DF8F36 /* WKList.m */; };
 		DACCEE6915DA07ED00A8BD52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA66F8F415D5DE91000C5B0B /* Foundation.framework */; };
 		DACCEE9315DA08EB00A8BD52 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1B27D515D7300400C7A7EE /* CoreLocation.framework */; };
 		DACCEE9F15DA090E00A8BD52 /* WKOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DA66F99D15D62F69000C5B0B /* WKOAuth2Client.m */; };
@@ -103,6 +104,8 @@
 		DA90303815DA2DD500F02E0D /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		DA90303915DA2DD500F02E0D /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		DA90303A15DA2DD500F02E0D /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		DACCE37615DE2EEC00DF8F36 /* WKList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKList.h; sourceTree = "<group>"; };
+		DACCE37715DE2EEC00DF8F36 /* WKList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKList.m; sourceTree = "<group>"; };
 		DACCEE6815DA07ED00A8BD52 /* libWeiboKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWeiboKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACCEE6C15DA07ED00A8BD52 /* WeiboKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeiboKit-Prefix.pch"; sourceTree = "<group>"; };
 		DAD357AC15DB2BC200DCA70A /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
@@ -182,6 +185,8 @@
 				DAD357E715DB47D300DCA70A /* WKOAuthUser.h */,
 				DAD357E815DB47D300DCA70A /* WKOAuthUser.m */,
 				DAD357ED15DB551700DCA70A /* WKApplicationDefaults.h */,
+				DACCE37615DE2EEC00DF8F36 /* WKList.h */,
+				DACCE37715DE2EEC00DF8F36 /* WKList.m */,
 			);
 			path = WeiboKit;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 				DAD357C015DB2BC200DCA70A /* SSKeychain.m in Sources */,
 				DAD357D715DB2CA800DCA70A /* WKAuthorizeWebView.m in Sources */,
 				DAD357EA15DB47D300DCA70A /* WKOAuthUser.m in Sources */,
+				DACCE37815DE2EEC00DF8F36 /* WKList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

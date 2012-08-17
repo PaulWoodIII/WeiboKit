@@ -12,22 +12,22 @@
 @class WKUser;
 
 @interface WKStatus : NSObject {
-    NSNumber *idNumber;
-    NSString *idString;
-    NSString *mid;
-    NSString *text;
-    NSString *thumbnail_pic;
-    NSString *original_pic;
-    NSString *source;
-    NSNumber *reposts_count;
-    NSNumber *comments_count;
-    NSDate *created_at; // Should this be a date? How will I share the NSDateFormatter?
-    BOOL favorited;
-    BOOL truncated;
-    CLLocation *geo;
-    NSString *in_reply_to_screen_name;
-    NSString *in_reply_to_status_id;
-    NSString *in_reply_to_user_id;
+//    NSNumber *idNumber;
+//    NSString *idString;
+//    NSString *mid;
+//    NSString *text;
+//    NSString *thumbnail_pic;
+//    NSString *original_pic;
+//    NSString *source;
+//    NSNumber *reposts_count;
+//    NSNumber *comments_count;
+//    NSDate *created_at; // Should this be a date? How will I share the NSDateFormatter?
+//    BOOL favorited;
+//    BOOL truncated;
+//    CLLocation *geo;
+//    NSString *in_reply_to_screen_name;
+//    NSString *in_reply_to_status_id;
+//    NSString *in_reply_to_user_id;
     
     // TO DO:
     // Add Retweeted Status
