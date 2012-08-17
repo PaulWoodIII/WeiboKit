@@ -31,7 +31,7 @@ static WKOAuthUser *__currentUser = nil;
 		}
         //Create the user
 		__currentUser = [[WKOAuthUser alloc] init];
-        __currentUser.user_id =
+        __currentUser.user_id = userID;
 		__currentUser.accessToken = accessToken;
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kWKCurrentUserChangedNotificationName object:__currentUser];
