@@ -33,5 +33,8 @@
     return list;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<%@ previous_cursor:%@ | next_cursor:%@  total:%d >", [self class], self.previous_cursor, self.next_cursor, [self.statuses count]];
+}
 
 @end

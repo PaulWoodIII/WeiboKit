@@ -157,18 +157,13 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
 }
 
 
-- (void)getHomeTimelineSinceStatus:(WKStatus *)sinceStatus
-                    startingAtPage:(int)pageNum
+- (void)getHomeTimelineSinceStatus:(NSNumber *)sinceStatus
                              count:(int)count
                        withSuccess:(void (^)(WKList *list))success
                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     if (sinceStatus) {
-        [parameters setObject:[sinceStatus idNumber] forKey:@"since_id"];
-    }
-    if (pageNum > 0) {
-        [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
-
+        [parameters setObject:sinceStatus forKey:@"since_id"];
     }
     if (count > 0) {
         [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
@@ -188,22 +183,17 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                                      }];    
 }
 
-- (void)getHomeTimelineSinceStatus:(WKStatus *)sinceStatus
-                 withMaximumStatus:(WKStatus *)maxStatus
-                    startingAtPage:(int)pageNum
+- (void)getHomeTimelineSinceStatus:(NSNumber *)sinceStatus
+                 withMaximumStatus:(NSNumber *)maxStatus
                              count:(int)count
                        withSuccess:(void (^)(WKList *list))success
                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     if (sinceStatus) {
-        [parameters setObject:[sinceStatus idNumber] forKey:@"since_id"];
+        [parameters setObject:sinceStatus forKey:@"since_id"];
     }
     if (maxStatus) {
-        [parameters setObject:[maxStatus idNumber] forKey:@"since_id"];
-    }
-    if (pageNum > 0) {
-        [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
-        
+        [parameters setObject:maxStatus forKey:@"max_id"];
     }
     if (count > 0) {
         [parameters setObject:[NSNumber numberWithInt:count] forKey:@"count"];
@@ -290,7 +280,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
         [parameters setObject:[sinceStatus idNumber] forKey:@"since_id"];
     }
     if (maxStatus) {
-        [parameters setObject:[maxStatus idNumber] forKey:@"since_id"];
+        [parameters setObject:[maxStatus idNumber] forKey:@"max_id"];
     }
     if (pageNum > 0) {
         [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
@@ -393,7 +383,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
         [parameters setObject:[sinceStatus idNumber] forKey:@"since_id"];
     }
     if (maxStatus) {
-        [parameters setObject:[maxStatus idNumber] forKey:@"since_id"];
+        [parameters setObject:[maxStatus idNumber] forKey:@"max_id"];
     }
     if (pageNum > 0) {
         [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];
@@ -493,7 +483,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
         [parameters setObject:[sinceStatus idNumber] forKey:@"since_id"];
     }
     if (maxStatus) {
-        [parameters setObject:[maxStatus idNumber] forKey:@"since_id"];
+        [parameters setObject:[maxStatus idNumber] forKey:@"max_id"];
     }
     if (pageNum > 0) {
         [parameters setObject:[NSNumber numberWithInt:pageNum] forKey:@"page"];

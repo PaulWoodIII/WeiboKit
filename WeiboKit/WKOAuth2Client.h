@@ -41,8 +41,8 @@ extern NSString *const kWKAuthorizationFailureNotificationName;
 // statuses/home_timeline
 // Return the authenticating user’s and his friends’ latest weibos
 - (void)getHomeTimelineWithSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-- (void)getHomeTimelineSinceStatus:(WKStatus *)sinceStatus startingAtPage:(int)pageNum count:(int)count withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-- (void)getHomeTimelineSinceStatus:(WKStatus *)sinceStatus withMaximumStatus:(WKStatus *)maxStatus startingAtPage:(int)pageNum count:(int)count withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (void)getHomeTimelineSinceStatus:(NSNumber *)sinceStatus count:(int)count withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (void)getHomeTimelineSinceStatus:(NSNumber *)sinceStatus withMaximumStatus:(NSNumber *)maxStatus count:(int)count withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 // statuses/friends_timeline
 // Return the authenticating user’s and his friends’ latest weibos
