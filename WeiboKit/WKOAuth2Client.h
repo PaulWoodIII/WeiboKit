@@ -88,18 +88,22 @@ extern NSString *const kWKAuthorizationFailureNotificationName;
 // statuses/destroy Delete a weibo
 // Delete a weibo
 - (void)destroyStatus:(WKStatus *)status withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ */
 
 // statuses/update
 // Post a weibo
-- (void)updateStatusWithComment:(NSString *)comment withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-- (void)updateStatusWithComment:(NSString *)comment withLat:(float)lat withLng:(float)lng withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (void)updateStatusWithComment:(NSString *)comment
+                    withSuccess:(void (^)(WKStatus *status))success
+                        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
-// statuses/upload
-// Upload a picture with a new weibo
-- (void)uploadStatusWithComment:(NSString *)comment withImage:(UIImage *)image withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-- (void)uploadStatusWithComment:(NSString *)comment withImage:(UIImage *)image withLat:(float)lat withLng:(float)lng withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
- 
- */
+//- (void)updateStatusWithComment:(NSString *)comment withLat:(float)lat withLng:(float)lng withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+//
+//// statuses/upload
+//// Upload a picture with a new weibo
+//- (void)uploadStatusWithComment:(NSString *)comment withImage:(UIImage *)image withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+//- (void)uploadStatusWithComment:(NSString *)comment withImage:(UIImage *)image withLat:(float)lat withLng:(float)lng withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+// 
+
 
 #pragma mark -
 #pragma mark Comments API

@@ -241,7 +241,6 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
 
 
 - (void)getFriendsTimelineSinceStatus:(NSNumber *)sinceStatus
-                       startingAtPage:(int)pageNum
                                 count:(int)count
                           withSuccess:(void (^)(WKList *list))success
                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
@@ -481,6 +480,31 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
 }
 
 
+#pragma mark Posting Status
+// statuses/update
+// Post a weibo
+
+- (void)updateStatusWithComment:(NSString *)comment
+                    withSuccess:(void (^)(WKStatus *status))success
+                        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
+    NSMutableDictionary *parameters = [self defaultGetParameters];
+    [parameters setValue:comment forKey:@"status"];
+    [[WKOAuth2Client sharedInstance] postPath:@"statuses/update.json"
+                                   parameters:parameters
+                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
+                                         WKStatus *status = [WKStatus objectWithDictionary:responseObject];
+                                         if (success) {
+                                             success(status);
+                                         }
+                                     }
+                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
+                                         if (failure) {
+                                             failure(operation, error);
+                                         }
+                                     }];
+}
+
+
 #pragma mark -
 #pragma mark Users API
 
@@ -501,5 +525,8 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                                          }
                                      }];
 }
+
+
+
 
 @end

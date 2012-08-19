@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface WKUser : NSObject {
-    NSString *user_id;
+    NSNumber *user_id;
     NSString *screen_name;
     NSString *name;
     NSString *province;
@@ -38,7 +38,7 @@
     NSNumber *bi_followers_count;
 }
 
-@property (nonatomic, retain) NSString *user_id;
+@property (nonatomic, retain) NSNumber *user_id;
 @property (nonatomic, retain) NSString *screen_name;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *province;
