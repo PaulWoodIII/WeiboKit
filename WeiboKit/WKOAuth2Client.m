@@ -95,7 +95,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                      NSDictionary *dict = (NSDictionary *)responseJSON;
                      
                      NSString *token = [dict objectForKey:@"access_token"];
-                     NSString *userID = [dict objectForKey:@"uid"];
+                     NSNumber *userID = [dict objectForKey:@"uid"];
                      NSInteger seconds = [[dict objectForKey:@"expires_in"] intValue];
                      
                      success = token && userID;
