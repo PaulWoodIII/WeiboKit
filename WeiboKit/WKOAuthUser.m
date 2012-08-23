@@ -20,12 +20,12 @@ static WKOAuthUser *__currentUser = nil;
 + (WKOAuthUser *)currentUser {
 	if (!__currentUser) {
 		NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-		NSString *userID = [userDefaults objectForKey:kWKUserIDKey];
+		NSNumber *userID = [userDefaults objectForKey:kWKUserIDKey];
 		if (!userID) {
 			return nil;
 		}
 		
-		NSString *accessToken = [SSKeychain passwordForService:kWKKeychainServiceName account:userID];
+		NSString *accessToken = [SSKeychain passwordForService:kWKKeychainServiceName account:[userID description]];
 		if (!accessToken) {
 			return nil;
 		}
@@ -42,7 +42,7 @@ static WKOAuthUser *__currentUser = nil;
 
 + (void)setCurrentUser:(WKOAuthUser *)user {
 	if (__currentUser) {
-		[SSKeychain deletePasswordForService:kWKKeychainServiceName account:__currentUser.user_id];
+		[SSKeychain deletePasswordForService:kWKKeychainServiceName account:[__currentUser.user_id description]];
 	}
 	
 	if (!user.user_id || !user.accessToken) {
@@ -54,7 +54,7 @@ static WKOAuthUser *__currentUser = nil;
 	[userDefaults setObject:user.user_id forKey:kWKUserIDKey];
 	[userDefaults synchronize];
 	
-	[SSKeychain setPassword:user.accessToken forService:kWKKeychainServiceName account:user.user_id];
+	[SSKeychain setPassword:user.accessToken forService:kWKKeychainServiceName account:[user.user_id description]];
 	
 	__currentUser = user;
 
