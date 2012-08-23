@@ -7,24 +7,9 @@
 //
 
 #import "WKStatus.h"
+#import "WKUser.h"
 
 @implementation WKStatus
-
-@synthesize idString;
-@synthesize mid;
-@synthesize text;
-@synthesize thumbnail_pic;
-@synthesize original_pic;
-@synthesize source;
-@synthesize reposts_count;
-@synthesize comments_count;
-@synthesize created_at;
-@synthesize favorited;
-@synthesize truncated;
-@synthesize geo;
-@synthesize in_reply_to_screen_name;
-@synthesize in_reply_to_status_id;
-@synthesize in_reply_to_user_id;
 
 + (id)objectWithDictionary:(NSDictionary *)dictionary{
     // If there isn't a dictionary, we won't find the object. Return nil.
@@ -58,6 +43,7 @@
         self.in_reply_to_user_id = [dictionary objectForKey:@"in_reply_to_user_id"];
         // TO DO
         // Add all the other params
+        self.user = [WKUser objectWithDictionary:[dictionary objectForKey:@"user"]];
     }
     
     return self;
