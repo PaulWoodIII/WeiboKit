@@ -104,10 +104,25 @@ extern NSString *const kWKAuthorizationFailureNotificationName;
 //- (void)uploadStatusWithComment:(NSString *)comment withImage:(UIImage *)image withLat:(float)lat withLng:(float)lng withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 // 
 
+#pragma mark Repost Status
+// statuses/repost
+// Post a weibo
+
+- (void)repostStatus:(NSNumber *)status
+          withStatus:(NSString *)comment
+           isComment:(int)is_comment
+         withSuccess:(void (^)(WKStatus *status))success
+             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 #pragma mark -
 #pragma mark Comments API
 // Comments and Posting Comments
+
+- (void)commentOnStatus:(NSNumber *)status
+            withComment:(NSString *)comment
+             onOriginal:(int)comment_ori
+            withSuccess:(void (^)(WKStatus *status))success
+                failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 #pragma mark -
 #pragma mark Users API

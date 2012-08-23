@@ -37,20 +37,22 @@
         self.created_at = [dictionary objectForKey:@"created_at"];
         self.favorited = [[dictionary objectForKey:@"favorited"] boolValue];
         self.truncated = [[dictionary objectForKey:@"truncated"] boolValue];
-        //self.geo = [dictionary objectForKey:@"geo"];
+        self.geo = [dictionary objectForKey:@"geo"];
         self.in_reply_to_screen_name = [dictionary objectForKey:@"in_reply_to_screen_name"];
         self.in_reply_to_status_id = [dictionary objectForKey:@"in_reply_to_status_id"];
         self.in_reply_to_user_id = [dictionary objectForKey:@"in_reply_to_user_id"];
-        // TO DO
-        // Add all the other params
+
         self.user = [WKUser objectWithDictionary:[dictionary objectForKey:@"user"]];
+        
+        self.retweeted_status = [WKStatus objectWithDictionary:[dictionary objectForKey:@"retweeted_status"]];
+        
     }
     
     return self;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@ text:%@ | idString:%@>", [self class], self.text, self.idString];
+    return [NSString stringWithFormat:@"%@\n text:%@\n idString:%@\n geo:%@\n retweeted_status:%@", [self class], self.text, self.idString, self.geo, self.retweeted_status];
 }
 
 

@@ -27,11 +27,12 @@
 @property (nonatomic, retain) NSDate *created_at;
 @property (nonatomic, assign, getter=isFavorited) BOOL favorited;
 @property (nonatomic, assign, getter=isTruncated) BOOL truncated;
-@property (nonatomic, retain) CLLocation *geo;
+@property (nonatomic, retain) NSDictionary *geo;
 @property (nonatomic, retain) NSString *in_reply_to_screen_name;
 @property (nonatomic, retain) NSString *in_reply_to_status_id;
 @property (nonatomic, retain) NSString *in_reply_to_user_id;
 @property (nonatomic, retain) WKUser *user;
+@property (nonatomic, retain) WKStatus *retweeted_status;
 
 + (id)objectWithDictionary:(NSDictionary *)dictionary;
 

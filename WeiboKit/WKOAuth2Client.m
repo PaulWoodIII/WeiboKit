@@ -504,6 +504,62 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                                      }];
 }
 
+#pragma mark Repost Status
+// statuses/repost
+// Post a weibo
+
+- (void)repostStatus:(NSNumber *)status
+          withStatus:(NSString *)comment
+           isComment:(int)is_comment
+         withSuccess:(void (^)(WKStatus *status))success
+             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
+    NSMutableDictionary *parameters = [self defaultGetParameters];
+    [parameters setValue:comment forKey:@"status"];
+    [parameters setValue:status forKey:@"id"];
+    [parameters setValue:[NSNumber numberWithInt:is_comment] forKey:@"is_comment"];
+    [[WKOAuth2Client sharedInstance] postPath:@"statuses/repost.json"
+                                   parameters:parameters
+                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
+                                          WKStatus *status = [WKStatus objectWithDictionary:responseObject];
+                                          if (success) {
+                                              success(status);
+                                          }
+                                      }
+                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
+                                          if (failure) {
+                                              failure(operation, error);
+                                          }
+                                      }];
+}
+
+
+#pragma mark Comment on Status
+// comments/create
+// Post a weibo
+
+- (void)commentOnStatus:(NSNumber *)status
+            withComment:(NSString *)comment
+             onOriginal:(int)comment_ori
+            withSuccess:(void (^)(WKStatus *status))success
+                failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
+    NSMutableDictionary *parameters = [self defaultGetParameters];
+    [parameters setValue:comment forKey:@"comment"];
+    [parameters setValue:status forKey:@"id"];
+    [parameters setValue:[NSNumber numberWithInt:comment_ori] forKey:@"comment_ori"];
+    [[WKOAuth2Client sharedInstance] postPath:@"comments/create.json"
+                                   parameters:parameters
+                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
+                                          WKStatus *status = [WKStatus objectWithDictionary:responseObject];
+                                          if (success) {
+                                              success(status);
+                                          }
+                                      }
+                                      failure:^(AFHTTPRequestOperation *operation, NSError *error){
+                                          if (failure) {
+                                              failure(operation, error);
+                                          }
+                                      }];
+}
 
 #pragma mark -
 #pragma mark Users API
