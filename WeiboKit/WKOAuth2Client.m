@@ -142,7 +142,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     NSMutableDictionary *parameters = [self defaultGetParameters];
     [parameters setObject:[NSNumber numberWithInt:5] forKey:@"count"];
-
+    
     [[WKOAuth2Client sharedInstance] getPath:@"statuses/home_timeline.json"
                                   parameters:parameters
                                      success:^(AFHTTPRequestOperation *operation, id responseObject){
@@ -182,7 +182,7 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
                                          if (failure) {
                                              failure(operation, error);
                                          }
-                                     }];    
+                                     }];
 }
 
 - (void)getHomeTimelineSinceStatus:(NSNumber *)sinceStatus
@@ -492,16 +492,51 @@ NSString *const kWKAuthorizationFailureNotificationName = @"kWKAuthorizationFail
     [[WKOAuth2Client sharedInstance] postPath:@"statuses/update.json"
                                    parameters:parameters
                                       success:^(AFHTTPRequestOperation *operation, id responseObject){
-                                         WKStatus *status = [WKStatus objectWithDictionary:responseObject];
-                                         if (success) {
-                                             success(status);
-                                         }
-                                     }
+                                          WKStatus *status = [WKStatus objectWithDictionary:responseObject];
+                                          if (success) {
+                                              success(status);
+                                          }
+                                      }
                                       failure:^(AFHTTPRequestOperation *operation, NSError *error){
+                                          if (failure) {
+                                              failure(operation, error);
+                                          }
+                                      }];
+}
+
+- (void)uploadStatusWithComment:(NSString *)comment
+                  withImageData:(NSData *)imageData
+                        withLat:(float)lat
+                        withLng:(float)lng
+                    withSuccess:(void (^)(WKStatus *status))success
+                        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
+    NSMutableDictionary *parameters = [self defaultGetParameters];
+    [parameters setValue:comment forKey:@"status"];
+    [parameters setValue:[NSNumber numberWithFloat:lat] forKey:@"lat"];
+    [parameters setValue:[NSNumber numberWithFloat:lng] forKey:@"long"];
+    
+    NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST"
+                                                                   path:@"statuses/upload.json"
+                                                             parameters:parameters
+                                              constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+                                                  [formData appendPartWithFileData:imageData name:@"pic" fileName:@"temp.jpeg" mimeType:@"image/jpeg"];
+                                              }];
+    
+    AFHTTPRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        WKStatus *status = [WKStatus objectWithDictionary:responseObject];
+        if (success) {
+            success(status);
+        }
+        
+    }
+                                     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                          if (failure) {
                                              failure(operation, error);
                                          }
                                      }];
+    
+    [operation start];
 }
 
 #pragma mark Repost Status

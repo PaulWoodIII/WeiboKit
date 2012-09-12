@@ -64,30 +64,30 @@ extern NSString *const kWKAuthorizationFailureNotificationName;
 
 //TODO
 /*
-
-  // statuses/repost_timeline
-  // Return the latest of repost weibos of a original weibo
-- (void)getRepostForStatus:(NSNumber *)user_id withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-- (void)getRepostForStatus:(NSNumber *)user_id sinceStatus:(NSNumber *)sinceStatus startingAtPage:(int)pageNum count:(int)count withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-- (void)getRepostForStatus:(NSNumber *)user_id  sinceStatus:(NSNumber *)sinceStatus withMaximumStatus:(NSNumber *)maxStatus startingAtPage:(int)pageNum count:(int)count withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-// statuses/mentions.json
-// Return the latest weibos metioned the authenticating user
-- (void)getMentionsWithSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-- (void)getMentionsForStatus:(NSNumber *)status_id sinceStatus:(NSNumber *)sinceStatus startingAtPage:(int)pageNum count:(int)count withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-- (void)getMentionsForStatus:(NSNumber *)status_id  sinceStatus:(NSNumber *)sinceStatus withMaximumStatus:(NSNumber *)maxStatus startingAtPage:(int)pageNum count:(int)count withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-// statuses/show
-- (void)showStatusWithID:(int)statusID withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
  
-// statuses/repost Repost a weibo
-// Repost a weibo
-- (void)repostStatus:(WKStatus *)status withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-- (void)repostStatus:(WKStatus *)status withComment:(NSString *)comment withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ // statuses/repost_timeline
+ // Return the latest of repost weibos of a original weibo
+ - (void)getRepostForStatus:(NSNumber *)user_id withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ - (void)getRepostForStatus:(NSNumber *)user_id sinceStatus:(NSNumber *)sinceStatus startingAtPage:(int)pageNum count:(int)count withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ - (void)getRepostForStatus:(NSNumber *)user_id  sinceStatus:(NSNumber *)sinceStatus withMaximumStatus:(NSNumber *)maxStatus startingAtPage:(int)pageNum count:(int)count withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
  
-// statuses/destroy Delete a weibo
-// Delete a weibo
-- (void)destroyStatus:(WKStatus *)status withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ // statuses/mentions.json
+ // Return the latest weibos metioned the authenticating user
+ - (void)getMentionsWithSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ - (void)getMentionsForStatus:(NSNumber *)status_id sinceStatus:(NSNumber *)sinceStatus startingAtPage:(int)pageNum count:(int)count withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ - (void)getMentionsForStatus:(NSNumber *)status_id  sinceStatus:(NSNumber *)sinceStatus withMaximumStatus:(NSNumber *)maxStatus startingAtPage:(int)pageNum count:(int)count withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ 
+ // statuses/show
+ - (void)showStatusWithID:(int)statusID withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ 
+ // statuses/repost Repost a weibo
+ // Repost a weibo
+ - (void)repostStatus:(WKStatus *)status withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ - (void)repostStatus:(WKStatus *)status withComment:(NSString *)comment withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+ 
+ // statuses/destroy Delete a weibo
+ // Delete a weibo
+ - (void)destroyStatus:(WKStatus *)status withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
  */
 
 // statuses/update
@@ -101,8 +101,13 @@ extern NSString *const kWKAuthorizationFailureNotificationName;
 //// statuses/upload
 //// Upload a picture with a new weibo
 //- (void)uploadStatusWithComment:(NSString *)comment withImage:(UIImage *)image withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-//- (void)uploadStatusWithComment:(NSString *)comment withImage:(UIImage *)image withLat:(float)lat withLng:(float)lng withSuccess:(void (^)(WKList *list))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-// 
+- (void)uploadStatusWithComment:(NSString *)comment
+                  withImageData:(NSData *)imageData
+                        withLat:(float)lat
+                        withLng:(float)lng
+                    withSuccess:(void (^)(WKStatus *status))success
+                        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+//
 
 #pragma mark Repost Status
 // statuses/repost
